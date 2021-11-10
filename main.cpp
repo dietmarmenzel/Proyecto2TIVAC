@@ -168,3 +168,6 @@ long LastTime1;
 long sampleTime1 =15; 
 long LastTime2; 
 long sampleTime2 = 1000; 
+//Notas para la bocina
+int cancion1[] = { NOTE_F7, NOTE_F6,NOTE_A5, NOTE_F7  }; 
+int cancion2[] = { NOTE_B0, NOTE_A7, NOTE_D0, NOTE_D5};
