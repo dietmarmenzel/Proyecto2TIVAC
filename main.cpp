@@ -323,3 +323,18 @@ void LCD_Init(void) {
   for (uint8_t i = 0; i < 8; i++) {
     pinMode(DPINS[i], OUTPUT);
   }
+
+//*********************************************************************************************************************
+//Cómo debe ser la inicialización de la pantalla TFT
+//*********************************************************************************************************************
+  digitalWrite(LCD_CS, HIGH);
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_WR, HIGH);
+  digitalWrite(LCD_RD, HIGH);
+  digitalWrite(LCD_RST, HIGH);
+  delay(5);
+  digitalWrite(LCD_RST, LOW);
+  delay(20);
+  digitalWrite(LCD_RST, HIGH);
+  delay(150);
+  digitalWrite(LCD_CS, LOW);
