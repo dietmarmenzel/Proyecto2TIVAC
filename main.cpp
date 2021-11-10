@@ -144,3 +144,16 @@ int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 //*********************************************************************************************************************
 void sensorTemperatura(void); //Función del sensor de temperatura
 void guardarInfo(void); //Función para guardar la información de la SD
+//Funciones para accionar la pantalla TFT
+void LCD_Init(void);
+void LCD_CMD(uint8_t cmd);
+void LCD_DATA(uint8_t data);
+void SetWindows(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
+void LCD_Clear(unsigned int c);
+void H_line(unsigned int x, unsigned int y, unsigned int l, unsigned int c);
+void V_line(unsigned int x, unsigned int y, unsigned int l, unsigned int c);
+void Rect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c);
+void FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c);
+void LCD_Print(String text, int x, int y, int fontSize, int color, int background);
+void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
+void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[], int columns, int index, char flip, char offset);
