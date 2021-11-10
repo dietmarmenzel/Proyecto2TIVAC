@@ -286,4 +286,19 @@ void guardarInfo(void){
     }
 }
 }
+void writeSD(void) {
+  //Archivo donde se encuentre los resultados
+  myFile = SD.open("datos.csv", FILE_WRITE);
+  if (myFile) {
+    Serial.println("Escribiendo datos");
+    Serial.print("Temperatura: ");
+    Serial.print(texto1);
+    myFile.print(texto1.toInt());
+    myFile.println(",");
 
+    myFile.close();
+    Serial.println("done.");
+  } else {
+    Serial.println("error opening data.csv");
+  }
+}
