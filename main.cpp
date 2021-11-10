@@ -522,3 +522,28 @@ void Rect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsign
   V_line(x  , y  , h, c);
   V_line(x + w, y  , h, c);
 }
+
+//*********************************************************************************************************************
+//Coordenadas para el dato de la pantalla rectángulo relleno
+//*********************************************************************************************************************
+void FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c) {
+  LCD_CMD(0x02c); // write_memory_start
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_CS, LOW);
+
+  unsigned int x2, y2;
+  x2 = x + w;
+  y2 = y + h;
+  SetWindows(x, y, x2 - 1, y2 - 1);
+  unsigned int k = w * h * 2 - 1;
+  unsigned int i, j;
+  for (int i = 0; i < w; i++) {
+    for (int j = 0; j < h; j++) {
+      LCD_DATA(c >> 8);
+      LCD_DATA(c);
+      //LCD_DATA(bitmap[k]);
+      k = k - 2;
+    }
+  }
+  digitalWrite(LCD_CS, HIGH);
+}
