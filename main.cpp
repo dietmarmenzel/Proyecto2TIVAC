@@ -422,3 +422,13 @@ void LCD_Init(void) {
   LCD_CMD(ILI9341_DISPON);    //Display on
   digitalWrite(LCD_CS, HIGH);
 }
+
+//*********************************************************************************************************************
+//Intrucciones para enviar datos a la pantalla TFT
+//*********************************************************************************************************************
+void LCD_CMD(uint8_t cmd) {
+  digitalWrite(LCD_RS, LOW);
+  digitalWrite(LCD_WR, LOW);
+  GPIO_PORTB_DATA_R = cmd;
+  digitalWrite(LCD_WR, HIGH);
+}
