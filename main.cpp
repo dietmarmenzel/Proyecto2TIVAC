@@ -259,3 +259,19 @@ void sensorTemperatura(void){
   } 
 }
 
+//*********************************************************************************************************************
+//Guardar datos del sensor en SD
+//*********************************************************************************************************************
+void guardarInfo(void){
+ //Estado boton 2
+ if (digitalRead(BTN2)==0){
+   //Suena la nota cuando se apache el boton
+   for (int thisNote = 0; thisNote < 4; thisNote++) {
+      //Duración de la nota
+      int noteDuration = 1000 / duracion1[thisNote];
+      tone(bocina, cancion1[thisNote], noteDuration);
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(pauseBetweenNotes);
+      noTone(bocina);
+      subirDatos=true; 
+    }
