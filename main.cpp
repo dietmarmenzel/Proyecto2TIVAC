@@ -29,3 +29,6 @@
 #include "driverlib/sysctl.h"
 #include "driverlib/timer.h"
 #include <avr/pgmspace.h>
+#include "bitmaps.h"
+#include "font.h"
+#include "lcd_registers.h"
