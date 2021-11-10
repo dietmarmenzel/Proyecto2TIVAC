@@ -170,7 +170,7 @@ long LastTime2;
 long sampleTime2 = 1000; 
 //Notas para la bocina
 int cancion1[] = { NOTE_F7, NOTE_F6,NOTE_A5, NOTE_F7  }; 
-int cancion2[] = { NOTE_B0, NOTE_A7, NOTE_D0, NOTE_D5};
+int cancion2[] = { NOTE_B0, NOTE_A7, NOTE_A7, NOTE_D5};
 //Duración de notas para la bocina
 int duracion1[] = {1, 4, 8, 8}; // int duracion1[] = {4, 16, 8, 8};
 int duracion2[] = {4, 8, 4, 8};
@@ -213,3 +213,16 @@ void setup() {
 
   LCD_Bitmap(0, 0, 320, 240, fondo);
 }
+
+//*********************************************************************************************************************
+//Loop principal
+//*********************************************************************************************************************
+void loop()
+{
+ //Posicion del texto en la TFT
+ LCD_Print(texto1 ,110, 110, 1, 0x0000,   0xFFFF);
+  
+  sensorTemperatura();   
+  guardarInfo(); 
+}
+
