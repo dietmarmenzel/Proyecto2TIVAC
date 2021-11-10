@@ -32,3 +32,12 @@
 #include "bitmaps.h"
 #include "font.h"
 #include "lcd_registers.h"
+
+//*********************************************************************************************************************
+//Definición de pines
+//*********************************************************************************************************************
+//Definición de pines para los botones
+#define BTN1 PF_0 
+#define BTN2 PF_4
+//Definición de pines para la bocina
+#define bocina PF_3
