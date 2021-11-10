@@ -547,3 +547,55 @@ void FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, un
   }
   digitalWrite(LCD_CS, HIGH);
 }
+
+//*********************************************************************************************************************
+//Escribir texto en la pantalla TFT
+//*********************************************************************************************************************
+void LCD_Print(String text, int x, int y, int fontSize, int color, int background) {
+  int fontXSize ;
+  int fontYSize ;
+
+  if (fontSize == 1) {
+    fontXSize = fontXSizeSmal ;
+    fontYSize = fontYSizeSmal ;
+  }
+  if (fontSize == 2) {
+    fontXSize = fontXSizeBig ;
+    fontYSize = fontYSizeBig ;
+  }
+
+  char charInput ;
+  int cLength = text.length();
+  Serial.println(cLength, DEC);
+  int charDec ;
+  int c ;
+  int charHex ;
+  char char_array[cLength + 1];
+  text.toCharArray(char_array, cLength + 1) ;
+  for (int i = 0; i < cLength ; i++) {
+    charInput = char_array[i];
+    Serial.println(char_array[i]);
+    charDec = int(charInput);
+    digitalWrite(LCD_CS, LOW);
+    SetWindows(x + (i * fontXSize), y, x + (i * fontXSize) + fontXSize - 1, y + fontYSize );
+    long charHex1 ;
+    for ( int n = 0 ; n < fontYSize ; n++ ) {
+      if (fontSize == 1) {
+        charHex1 = pgm_read_word_near(smallFont + ((charDec - 32) * fontYSize) + n);
+      }
+      if (fontSize == 2) {
+        charHex1 = pgm_read_word_near(bigFont + ((charDec - 32) * fontYSize) + n);
+      }
+      for (int t = 1; t < fontXSize + 1 ; t++) {
+        if (( charHex1 & (1 << (fontXSize - t))) > 0 ) {
+          c = color ;
+        } else {
+          c = background ;
+        }
+        LCD_DATA(c >> 8);
+        LCD_DATA(c);
+      }
+    }
+    digitalWrite(LCD_CS, HIGH);
+  }
+}
