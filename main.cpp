@@ -226,3 +226,19 @@ void loop()
   guardarInfo(); 
 }
 
+//*********************************************************************************************************************
+//Sensor de Temperatura
+//*********************************************************************************************************************
+void sensorTemperatura(void){
+  //Estado boton 1
+  if (digitalRead(BTN1)==0){
+    //Suena la nota cuando se apache el boton
+    for (int thisNote = 0; thisNote < 4; thisNote++) {
+      //Duracion de la nota
+      int noteDuration1 = 1000 / duracion2[thisNote];
+      tone(bocina, cancion2[thisNote], noteDuration1);
+      int pauseBetweenNotes = noteDuration1 * 1.30;
+      delay(pauseBetweenNotes);
+      noTone(bocina);
+      comunicacion = true; 
+    }
