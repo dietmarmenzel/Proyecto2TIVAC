@@ -163,3 +163,8 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[], int
 //*********************************************************************************************************************
 //Fondo de la pantalla TFT 
 extern uint8_t fondo[];
+//Tiempos de muestra (Delay)
+long LastTime1;
+long sampleTime1 =15; 
+long LastTime2; 
+long sampleTime2 = 1000; 
