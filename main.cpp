@@ -203,3 +203,13 @@ void setup() {
     //Si no hay SD insertada
     Serial.println("Error");
     return;
+     }
+  //Comienza TFT
+  SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
+  GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
+
+  LCD_Init();
+  LCD_Clear(0x00);
+
+  LCD_Bitmap(0, 0, 320, 240, fondo);
+}
