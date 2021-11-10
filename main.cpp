@@ -442,3 +442,20 @@ void LCD_DATA(uint8_t data) {
   GPIO_PORTB_DATA_R = data;
   digitalWrite(LCD_WR, HIGH);
 }
+
+//*********************************************************************************************************************
+//Parámetros que debe de trabajar de la tarjeta 
+//*********************************************************************************************************************
+void SetWindows(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2) {
+  LCD_CMD(0x2a); // Set_column_address 4 parameters
+  LCD_DATA(x1 >> 8);
+  LCD_DATA(x1);
+  LCD_DATA(x2 >> 8);
+  LCD_DATA(x2);
+  LCD_CMD(0x2b); // Set_page_address 4 parameters
+  LCD_DATA(y1 >> 8);
+  LCD_DATA(y1);
+  LCD_DATA(y2 >> 8);
+  LCD_DATA(y2);
+  LCD_CMD(0x2c); // Write_memory_start
+}
