@@ -242,3 +242,20 @@ void sensorTemperatura(void){
       noTone(bocina);
       comunicacion = true; 
     }
+        delay(10);
+    if(digitalRead(BTN1)==1){
+      if(comunicacion){
+        if (Serial3.available()>0){
+          texto1 = Serial3.readStringUntil('\n');
+         
+        }
+        //Despliegue el resultado cuando se apache el boton 1
+        Serial3.println(texto1);
+        Serial.println(texto1);
+        comunicacion = false; 
+      }
+
+   }
+  } 
+}
+
