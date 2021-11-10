@@ -599,3 +599,29 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
     digitalWrite(LCD_CS, HIGH);
   }
 }
+
+//*********************************************************************************************************************
+//Insertar la imagen de fondo con Bitmaps
+//*********************************************************************************************************************
+void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]) {
+  LCD_CMD(0x02c); // write_memory_start
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_CS, LOW);
+
+  unsigned int x2, y2;
+  x2 = x + width;
+  y2 = y + height;
+  SetWindows(x, y, x2 - 1, y2 - 1);
+  unsigned int k = 0;
+  unsigned int i, j;
+
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
+      LCD_DATA(bitmap[k]);
+      LCD_DATA(bitmap[k + 1]);
+      //LCD_DATA(bitmap[k]);
+      k = k + 2;
+    }
+  }
+  digitalWrite(LCD_CS, HIGH);
+}
