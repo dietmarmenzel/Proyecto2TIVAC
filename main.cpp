@@ -459,3 +459,20 @@ void SetWindows(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int 
   LCD_DATA(y2);
   LCD_CMD(0x2c); // Write_memory_start
 }
+
+//*********************************************************************************************************************
+//Pantalla TFT en blanco
+//*********************************************************************************************************************
+void LCD_Clear(unsigned int c) {
+  unsigned int x, y;
+  LCD_CMD(0x02c); // write_memory_start
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_CS, LOW);
+  SetWindows(0, 0, 319, 239); // 479, 319);
+  for (x = 0; x < 320; x++)
+    for (y = 0; y < 240; y++) {
+      LCD_DATA(c >> 8);
+      LCD_DATA(c);
+    }
+  digitalWrite(LCD_CS, HIGH);
+}
