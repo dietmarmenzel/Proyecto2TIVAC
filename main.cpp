@@ -182,3 +182,14 @@ bool comunicacion = false;
 bool subirDatos = false; 
 //Archivo para guardar datos
 File myFile;
+
+//*********************************************************************************************************************
+//Configuración
+//*********************************************************************************************************************
+void setup() {
+  //Comunicación serial
+  Serial.begin(115200);
+  Serial3.begin(115200);
+  //Estado de botones
+  pinMode(BTN1, INPUT_PULLUP); 
+  pinMode(BTN2, INPUT_PULLUP);
