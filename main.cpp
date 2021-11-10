@@ -157,3 +157,9 @@ void FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, un
 void LCD_Print(String text, int x, int y, int fontSize, int color, int background);
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[], int columns, int index, char flip, char offset);
+
+//*********************************************************************************************************************
+//Variables Globales
+//*********************************************************************************************************************
+//Fondo de la pantalla TFT 
+extern uint8_t fondo[];
