@@ -476,3 +476,21 @@ void LCD_Clear(unsigned int c) {
     }
   digitalWrite(LCD_CS, HIGH);
 }
+
+//*********************************************************************************************************************
+//Coordenadas para el dato de la pantalla
+//*********************************************************************************************************************
+void H_line(unsigned int x, unsigned int y, unsigned int l, unsigned int c) {
+  unsigned int i, j;
+  LCD_CMD(0x02c); //write_memory_start
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_CS, LOW);
+  l = l + x;
+  SetWindows(x, y, l, y);
+  j = l;
+  for (i = 0; i < l; i++) {
+    LCD_DATA(c >> 8);
+    LCD_DATA(c);
+  }
+  digitalWrite(LCD_CS, HIGH);
+}
