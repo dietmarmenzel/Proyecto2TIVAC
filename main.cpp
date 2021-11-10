@@ -275,3 +275,15 @@ void guardarInfo(void){
       noTone(bocina);
       subirDatos=true; 
     }
+       delay(10);
+    if(digitalRead(BTN2)==1){
+      //Guardar datos en SD
+      if(subirDatos){
+        writeSD();  
+        subirDatos = false; 
+        Serial.println("Se guardaron los datos en la memoria SD"); 
+      }
+    }
+}
+}
+
