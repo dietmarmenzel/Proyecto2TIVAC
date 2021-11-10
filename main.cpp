@@ -175,3 +175,10 @@ int cancion2[] = { NOTE_B0, NOTE_A7, NOTE_D0, NOTE_D5};
 int duracion1[] = {1, 4, 8, 8}; // int duracion1[] = {4, 16, 8, 8};
 int duracion2[] = {4, 8, 4, 8};
 int numero =0;
+//Datos del sensor de temperatura
+String texto1=""; 
+String frase1 = "Sensor de temperatura";
+bool comunicacion = false; 
+bool subirDatos = false; 
+//Archivo para guardar datos
+File myFile;
