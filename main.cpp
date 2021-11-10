@@ -310,3 +310,16 @@ void lecturaDatos(void){
   texto1 = Serial3.readStringUntil('\n');
   Serial.println(texto1);
 }
+
+//*********************************************************************************************************************
+//Inicializa la pantalla TFT
+//*********************************************************************************************************************
+void LCD_Init(void) {
+  pinMode(LCD_RST, OUTPUT);
+  pinMode(LCD_CS, OUTPUT);
+  pinMode(LCD_RS, OUTPUT);
+  pinMode(LCD_WR, OUTPUT);
+  pinMode(LCD_RD, OUTPUT);
+  for (uint8_t i = 0; i < 8; i++) {
+    pinMode(DPINS[i], OUTPUT);
+  }
