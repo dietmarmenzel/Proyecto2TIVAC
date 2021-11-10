@@ -193,3 +193,13 @@ void setup() {
   //Estado de botones
   pinMode(BTN1, INPUT_PULLUP); 
   pinMode(BTN2, INPUT_PULLUP);
+
+  LastTime1=millis(); 
+  LastTime2=millis();
+  //Módulo SPI
+  SPI.setModule(0);
+  //Comunicación SD
+  if (!SD.begin(PA_3)) {
+    //Si no hay SD insertada
+    Serial.println("Error");
+    return;
