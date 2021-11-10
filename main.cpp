@@ -138,3 +138,9 @@
 #define LCD_WR PD_3
 #define LCD_RD PE_1
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
+
+//*********************************************************************************************************************
+//Prototipos de funciones
+//*********************************************************************************************************************
+void sensorTemperatura(void); //Función del sensor de temperatura
+void guardarInfo(void); //Función para guardar la información de la SD
