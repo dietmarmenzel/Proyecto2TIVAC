@@ -512,3 +512,13 @@ void V_line(unsigned int x, unsigned int y, unsigned int l, unsigned int c) {
   }
   digitalWrite(LCD_CS, HIGH);
 }
+
+//*********************************************************************************************************************
+//Coordenadas para el dato de la pantalla rectángulo
+//*********************************************************************************************************************
+void Rect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c) {
+  H_line(x  , y  , w, c);
+  H_line(x  , y + h, w, c);
+  V_line(x  , y  , h, c);
+  V_line(x + w, y  , h, c);
+}
