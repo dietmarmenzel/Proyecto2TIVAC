@@ -432,3 +432,13 @@ void LCD_CMD(uint8_t cmd) {
   GPIO_PORTB_DATA_R = cmd;
   digitalWrite(LCD_WR, HIGH);
 }
+
+//*********************************************************************************************************************
+//Intrucciones para enviar datos a la pantalla TFT
+//*********************************************************************************************************************
+void LCD_DATA(uint8_t data) {
+  digitalWrite(LCD_RS, HIGH);
+  digitalWrite(LCD_WR, LOW);
+  GPIO_PORTB_DATA_R = data;
+  digitalWrite(LCD_WR, HIGH);
+}
